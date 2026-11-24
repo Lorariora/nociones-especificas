@@ -447,7 +447,7 @@ if(W.speechSynthesis){pick();speechSynthesis.onvoiceschanged=pick}
 // ---- 播放 ----
 var A=new Audio(),cur=null,tok=0;A.preload='auto';
 function mark(el,on){if(el&&el.classList)el.classList.toggle('speaking',on)}
-function rate(){return W.SR?0.75:1}
+function rate(){return W.SR?0.6:1}
 function stop(){tok++;try{A.onended=A.onerror=null;A.pause()}catch(e){}
 if(W.speechSynthesis)try{speechSynthesis.cancel()}catch(e){}
 mark(cur,false);cur=null}
