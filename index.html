@@ -397,13 +397,15 @@ html body .numcol .zh{min-width:3.2em;white-space:normal}
 html body .numcol b.wd{min-width:0}
 }
 @media(max-width:640px){
-/* 特定.html 內文大類標題：西文與中文行內自然接續（中文為不可拆的整段，放不下才整段換行） */
-html body.spec h1.ch{display:flow-root;font-size:1.15rem;line-height:1.6;margin:22px 0 2px}
-html body.spec h1.ch::before{display:inline-block;margin-right:.4em}
-html body.spec h1.ch .ht{display:inline}
-html body.spec h1.ch .hn,html body.spec h1.ch .he,html body.spec h1.ch .hz{display:inline}
-html body.spec h1.ch .hz{font-size:.9em;white-space:nowrap}
-html body.spec h1.ch .gb{float:right;margin:0 0 0 .5em}
+/* 特定.html 內文大類標題：統一所有長短標題結構，西文與中文行內接續，按鈕統一在下方靠右 */
+html body.spec h1.ch,html body.spec h1.ch.lg{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:.4em;align-items:baseline;font-size:1.15rem;line-height:1.6;margin:22px 0 2px}
+html body.spec h1.ch::before,html body.spec h1.ch.lg::before{display:block;margin:0;grid-column:1;grid-row:1/3}
+html body.spec h1.ch .ht,html body.spec h1.ch.lg .ht{display:block;grid-column:2;grid-row:1;padding-left:2.1em}
+html body.spec h1.ch .hn,html body.spec h1.ch.lg .hn{display:inline-block;width:2.1em;margin-left:-2.1em}
+html body.spec h1.ch .he,html body.spec h1.ch.lg .he{display:inline}
+html body.spec h1.ch .hz,html body.spec h1.ch.lg .hz{display:inline;font-size:.9em;white-space:nowrap;margin-left:.35em}
+html body.spec h1.ch.lg.lg3 .hz{white-space:normal}
+html body.spec h1.ch .gb,html body.spec h1.ch.lg .gb{float:none;grid-column:2;grid-row:2;justify-self:end;margin:4px 0 0}
 /* 特定.html 長標題（JS 判定西文換行或放不下單行時加 .lg）：比照通用，西文第二行與中文皆對齊西文首字；按鈕靠右 */
 html body.spec h1.ch.lg{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:.4em;align-items:baseline}
 html body.spec h1.ch.lg::before{display:block;margin:0;grid-column:1;grid-row:1/3}
